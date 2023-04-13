@@ -1,0 +1,37 @@
+<meta charset="UTF-8">
+<canvas id="canvas1"width="600" height="400" >
+
+
+</canvas>
+
+
+<script>
+
+let canvas=document.getElementById("canvas1");
+let dibujar=canvas.getContext("2d");
+dibujar.fillStyle="lightgrey";
+dibujar.fillRect(0,0,600,400);
+
+dibujar.fillStyle="green";
+dibujar.fillRect(0,0,200,400);
+
+dibujar.fillStyle="red";
+dibujar.fillRect(400,0,200,400);
+
+dibujar.beginPath();
+dibujar.lineWidth = 20;
+dibujar.fillStyle="yellow";
+dibujar.moveTo(300, 200);
+dibujar.lineTo(200, 400);
+dibujar.lineTo(400, 400);
+dibujar.fill();
+
+dibujar.fillStyle="blue";
+dibujar.beginPath();
+dibujar.arc(300,200,50,0,2*Math.PI);
+dibujar.fill();
+
+
+
+
+</script>
