@@ -1,0 +1,58 @@
+<canvas width="600" height="400"> </canvas>
+
+<script>
+
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");    
+    pincel.fillStyle = "lightgrey";
+    pincel.fillRect(0,0,600,400); 
+	var radio=10;
+
+   function drawcircle(x,y,r,color){
+     pincel.fillStyle = color;
+     pincel.beginPath();
+	 pincel.arc(x,y,r,0,2*Math.PI);
+     pincel.fill();
+   }
+   
+   function limpiarfondo(){
+	pincel.clearRect(0,0,600,400);
+	pincel.fillStyle = "lightgrey";
+    pincel.fillRect(0,0,600,400); 
+   }
+   
+  var ox;
+  var oy;
+  function actualizarpantalla(){
+     limpiarfondo();
+	 ox=random(600);
+	 oy=random(400);
+     objetivo(ox,oy);
+  }
+  
+  
+  function objetivo(x,y){
+  drawcircle(x,y,radio+20,"red");  
+  drawcircle(x,y,radio+10,"white");
+  drawcircle(x,y,radio,"red");
+  
+  }
+ function random(maximo){
+    return Math.random()*maximo;
+	
+	}
+	
+  
+  setInterval(actualizarpantalla,1000);
+  pantalla.onclick=function(){click(event);}
+  
+  function click(event){
+     var clickX=event.offsetX;
+     var clickY=event.offsetY;
+	 if(clickX>=ox-30 && clickX<=ox+30 && clickY>=oy-30 && clickY<=oy+30 ){alert("has acertado");}
+	 else{alert("fallaste, intenta otra vez");}
+	 
+  }
+  
+  
+</script> 
